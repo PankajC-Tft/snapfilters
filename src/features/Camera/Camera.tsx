@@ -85,7 +85,7 @@ const Camera: React.FC = () => {
     if (initialized) await window.JEEFACEFILTERAPI.destroy();
 
     window.Filters[newFilter].init((errorCode: string) => {
-      if (errorCode) {
+      if (!errorCode) {
         removeFilter();
         dispatchFilter({ isLoading: false });
         alert(GENERIC_ERROR);
